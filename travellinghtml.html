@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the best travel destinations and tourism experiences around the world">
+    <title>Travel & Tourism</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #008080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .destination {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .destination img {
+            width: 300px;
+            height: 200px;
+            margin-right: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #008080;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d4d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Travel & Tourism</h1>
+        <p>Explore the world's best destinations!</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Destinations</a>
+        <a href="#">Travel Packages</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Destination Filter Input -->
+    <div class="container">
+        <h2>Top Travel Destinations</h2>
+        <input type="text" id="search" placeholder="Search destinations..." onkeyup="filterDestinations()">
+        
+        <!-- Destination 1 -->
+        <div class="destination">
+            <img src="C:\Users\DHANA\OneDrive\Pictures\New folder\taj1.jpeg.com/300x200" alt="Destination 1">
+            <div>
+                <h3>Tajmahal, agra</h3>
+                <p>Built in ivory-white marble, this mausoleum flaunts Indo-Islamic architecture. Tourists can walk through the manicured gardens dotted with fountains, and capture beautiful sunset shots.</p>
+            </div>
+        </div>
+
+        <!-- Destination 2 -->
+        <div class="destination">
+            <img src="https://via.placeholder.com/300x200" alt="Destination 2">
+            <div>
+                <h3>Badrinath, uttarakhand</h3>
+                <p>Badrinath is located at an elevation of around 3,100 m. Located in the Garhwal Himalayas, on the banks of the Alaknanda river, this sacred town lies between Nar and Narayana mountain ranges. The temple is believed to have been established by sage Adi Shankaracharya in the 8th century. With Lord Vishnu as its presiding deity, the temple remains open for six months in a year. In winter it becomes inaccessible due to heavy snowfall.</p>
+            </div>
+        </div>
+
+        <!-- Destination 3 -->
+        <div class="destination">
+            <img src="https://via.placeholder.com/300x200" alt="Destination 3">
+            <div>
+                <h3>GateWay of India, Mumbai</h3>
+                <p>The Gateway of India is an arch-monument completed in 1924 on the waterfront of Mumbai, India. It was erected to commemorate the landing of George V for his coronation as the Emperor of India in December 1911 at Strand Road near Wellington Fountain. He was the first British monarch to visit India</p>
+            </div>
+        </div>
+    </div>
+        <!-- Destination 4 -->
+        <div class="destination">
+            <img src="https://via.placeholder.com/300x200" alt="Destination 3">
+            <div>
+                <h3>Red Fort, New Delhi</h3>
+                <p>The Red Fort, also known as Lal Qila is a historic fort in Delhi, India, that historically served as the main residence of the Mughal emperors. Emperor Shah Jahan commissioned construction of the Red Fort on 12 May 1639, when he decided to shift his capital from Agra to Delhi.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Booking Form -->
+    <div class="container">
+        <h2>Booking Inquiry</h2>
+        <form id="bookingForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="destination">Select Destination:</label>
+            <select id="destination">
+
+                <option value="">Choose a destination</option>
+                <option value="Taj Mahal">Taj Mahal, Agra</option>
+                <option value="Badrinath">Badrinath,uttarakhand </option>
+                <option value="GateWay of India">GateWay of India, Mumbai</option>
+                <option value="Red Fort">Red Fort, New Delhi</option>
+            </select>
+
+            <button type="submit">Submit Inquiry</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Travel & Tourism. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // JavaScript to filter destinations by keyword
+        function filterDestinations() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const destinationCards = document.querySelectorAll('.destination');
+
+            destinationCards.forEach(card => {
+                const destinationName = card.querySelector('h3').innerText.toLowerCase();
+                if (destinationName.includes(searchInput)) {
+                    card.style.display = 'flex'; // Show matching destinations
+                } else {
+                    card.style.display = 'none'; // Hide non-matching destinations
+                }
+            });
+        }
+
+        // Booking form validation
+        function validateBookingForm(event) {
+            event.preventDefault(); // Prevent form submission until validation
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const destination = document.getElementById('destination').value;
+            
+            if (name === '' || email === '' || destination === '') {
+                alert('Please fill in all fields.');
+                return false;
+            } else {
+                alert(`Thank you, ${name}. Your booking inquiry for ${destination} has been submitted!`);
+                document.getElementById('bookingForm').reset(); // Clear the form
+            }
+        }
+
+        // Event Listener for form submission
+        document.getElementById('bookingForm').addEventListener('submit', validateBookingForm);
+    </script>
+
+</body>
+</html>
